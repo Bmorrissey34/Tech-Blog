@@ -1,15 +1,25 @@
 const sequelize = require('../config/connection');
-const seedGallery = require('./galleryData');
-const seedPaintings = require('./paintingData');
+const { User, Post } = require('../models');
 
-const seedAll = async () => {
+const userData = require('./userData.json');
+const postData = require('./postData.json');
+
+const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
-  await seedGallery();
+  const users = await User.bulkCreate(userData, {
+    individualHooks: true,
+    returning: true,
+  });
 
-  await seedPaintings();
+  for (const post of postData) {
+    await Post.create({
+      ...post,
+      user_id: users[Math.floor(Math.random() * users.length)].id,
+    });
+  }
 
   process.exit(0);
 };
 
-seedAll();
+seedDatabase();

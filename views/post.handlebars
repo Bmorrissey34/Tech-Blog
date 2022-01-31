@@ -1,0 +1,36 @@
+<div class="text-center">
+  <h2>{{title}}</h2>
+  <p>{{content}}</p>
+  <p>Created by {{user.username}} on {{format_date date_created}}</p>
+  {{#if logged_in}}
+  <div>
+    <form class="form new-comment-form">
+      <div class="form-group">
+        <label for="post-comment">Comment</label>
+        <textarea class="form-input" type="text" id="post-comment" name="post-comment"></textarea>
+        <input class="post-id" type="hidden" id="post-id" value ="{{id}}"/>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Comment</button>
+      </div>
+    </form>
+    <script src="/js/comment.js"></script>
+  </div>
+  {{/if}}
+    {{#each comments as |comment| }}
+      <div class="card">
+        <div class="card-header">
+        {{format_date comment.date_created}}
+        </div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p class="lead">
+          {{comment.comment}}
+          </p>
+          <footer class="blockquote-footer">Created by {{comment.user.username}}</footer>
+        </blockquote>
+      </div>
+    </div>
+    {{/each}} 
+  </div>
+</div>
