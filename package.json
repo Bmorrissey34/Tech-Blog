@@ -20,13 +20,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nandodavila/Tech-Blog.git"
+    "url": "https://github.com/Bmorrissey34/Tech-Blog"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nandodavila/Tech-Blog/issues"
+    "url": "https://github.com/Bmorrissey34/Tech-Blog"
   },
-  "homepage": "https://github.com/nandodavila/Tech-Blog#readme"
+  "homepage": "https://github.com/Bmorrissey34/Tech-Blog#readme"
 }
